@@ -8,6 +8,7 @@
  
 using namespace std;
  
+//instantiate
 long int p, q, n, t, flag, e[100], d[100], temp[100], j, m[100], en[100], i;
 char msg[100];
 int prime(long int);
@@ -15,6 +16,9 @@ void ce();
 long int cd(long int);
 void encrypt();
 void decrypt();
+
+//prime method
+//checks to see if a number is prime
 int prime(long int pr)
 {
     int i;
@@ -26,31 +30,54 @@ int prime(long int pr)
     }
     return 1;
 }
+
+//main method
 int main()
 {
+    //print message
     cout << "\nENTER FIRST PRIME NUMBER\n";
+    //store in p
     cin >> p;
+    //check to see if p is a prime
     flag = prime(p);
+    
+    //if p is not prime...
     if (flag == 0)
     {
+        //print message
         cout << "\nWRONG INPUT\n";
         exit(1);
     }
+    //print message
     cout << "\nENTER ANOTHER PRIME NUMBER\n";
+    //store input in q
     cin >> q;
+    //check to see if q is a prime
     flag = prime(q);
+    
+    //if q is not prime or p is q
     if (flag == 0 || p == q)
     {
         cout << "\nWRONG INPUT\n";
         exit(1);
     }
+    //print message
     cout << "\nENTER MESSAGE\n";
+    
+    //flush standardin
     fflush(stdin);
+    //store the next in msg
     cin >> msg;
+    
     for (i = 0; msg[i] != '\0'; i++)
+        //store all individual characters from msg in m sub i
         m[i] = msg[i];
+    
+    //multiplication of both prime numbers
     n = p * q;
+    //multiplication of both prime numbers minus 1
     t = (p - 1) * (q - 1);
+    //invoke ce(). See comments for this method for description of what this does.
     ce();
     cout << "\nPOSSIBLE VALUES OF e AND d ARE\n";
     for (i = 0; i < j - 1; i++)
@@ -59,6 +86,8 @@ int main()
     decrypt();
     return 0;
 }
+
+
 void ce()
 {
     int k;
