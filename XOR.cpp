@@ -1,4 +1,6 @@
+
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -14,7 +16,11 @@ string encryptDecrypt(string toEncrypt) {
 
 int main(int argc, const char * argv[])
 {
-    string encrypted = encryptDecrypt("hello world");
+    string input_line;
+    getline(cin, input_line);
+    cout << input_line;
+    
+    string encrypted = encryptDecrypt(input_line);
     cout << "Encrypted:" << encrypted << "\n";
     
     string decrypted = encryptDecrypt(encrypted);
